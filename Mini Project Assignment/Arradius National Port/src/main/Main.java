@@ -45,7 +45,7 @@ public class Main {
         edwin.bookTicket(arradiusAirport, flight2, 1, "Business", null); 
         lidya.bookTicket(arradiusAirport, flight2, 1, "First Class", promo2); 
         // promo.addPromoAvailibility(jumlah promo yang ingin ditambahkan) 
-        promo1.addPromoAvailibity(1); 
+        promo1.addPromoAvailibility(1); 
         lidya.bookTicket(arradiusAirport, flight1, 1, "Business", promo1); 
         System.out.println("--------------------------------------------------------------");
 

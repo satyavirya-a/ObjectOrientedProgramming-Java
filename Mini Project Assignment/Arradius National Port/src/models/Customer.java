@@ -18,6 +18,12 @@ public class Customer {
 		
 		return t;
 	}
+
+	public int addBalance(int i) {
+		return i;
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

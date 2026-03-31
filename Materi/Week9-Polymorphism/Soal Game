@@ -1,0 +1,13 @@
+Game
+------
+Character bisa beli MagicItem, PhysicalItem, dan DefenseItem
+cth:
+MagicItem: wand, crystal
+PhysicalItem: sword, dagger
+DefenseItem: armor, shield
+
+Character 
+Item (super)
+--> MagicItem
+--> PhysicalItem
+--> DefenseItem
