@@ -1,0 +1,42 @@
+A car rental company wants to calculate the daily rental price for different types of cars.
+They have several car categories:
+• Sedan
+• SUV
+• Truck
+
+Even though all of them are cars, each type has a different pricing rule.
+You must use polymorphism so that each car type provides its own version of the calculatePrice() method.
+Your tasks:
+1. Create a Parent Class
+Fields: brand, year, name
+Method: calculatePrice() (returns a base price, e.g., 0 or default)
+
+2. Create Child Classes
+Sedan = First day 50, next day 30 per day
+SUV = First day 80, next day 75 per day
+Truck = First day 120, next day 115 per day
+
+3. Create a Program to
+• Insert Car
+• Rent Car
+• Return Car
+• Remove Car
+
+Insert Car
+• Ask user to input car name, brand, and year
+• Add car to the array list
+
+Rent Car
+• Show all available cars
+• Ask user to choose car (by index) and input day
+• Calculate price
+
+Return Car
+• Show all rented cars
+• Ask user to choose car
+• Change the car status into available
+
+Remove Car
+• Ask user to choose car to be deleted
+• Remove car from the Array List
+
