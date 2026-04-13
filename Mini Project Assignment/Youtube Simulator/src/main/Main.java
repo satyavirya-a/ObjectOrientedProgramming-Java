@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import models.AudioFile;
-import models.File;
+import models.Skippable;
 import models.LiveStream;
 import models.Media;
 import models.VideoFile;
@@ -19,27 +19,14 @@ public class Main {
 		int i = 1;
 		int idx = 0;
 		for (Media media : medias) {
-			if (media instanceof File) {
-				if ( ((File)media).getCurrPlay() > 0) {
-					watchedMedias.add(media);
-				}
+			if (media.isWatched()) {
+				watchedMedias.add(media);
 			}
-			else {
-				if (((LiveStream)media).isPlayed()) {
-					watchedMedias.add(media);
-				}
-			}
-			
 		}
 		
 		for (Media media : watchedMedias) {
 			System.out.print("[" + i + "] ");
-			if (media instanceof File) {
-				((File) media).showShortHistory();
-			}
-			else {
-				media.showShortInfo();
-			}
+			media.showShortHistory();
 			i++;
 		}
 		
@@ -52,13 +39,7 @@ public class Main {
 		}
 		
 		Media tar = watchedMedias.get(idx - 1);
-		//ubah jadi belum pernah di tonton
-		if (tar instanceof File) {
-			((File) tar).setCurrPlay(0); 
-		}
-		else {
-			((LiveStream)tar).setIsPlayed(false);
-		}
+		tar.resetHistory(); //ubah jadi belum pernah di tonton
 		
 	}
 	
@@ -79,7 +60,7 @@ public class Main {
 		Media tar = medias.get(idx - 1);
 		int pil;
 		System.out.println();
-		if ( tar instanceof File ) {
+		if ( tar instanceof Skippable ) {
 			do {
 				System.out.print("Choose (0: back|1: skip forward|2: skip backward):");
 				pil = sc.nextInt();
@@ -87,9 +68,9 @@ public class Main {
 				System.out.println();
 				switch (pil) {
 					case 0: return;
-					case 1: ((File) tar).skipForward();
+					case 1: ((Skippable) tar).skipForward();
 							break;
-					case 2: ((File) tar).skipBackward();
+					case 2: ((Skippable) tar).skipBackward();
 							break;
 				}
 				System.out.println();
@@ -113,8 +94,8 @@ public class Main {
 		String desc;
 		int dur;
 		System.out.println("Add Media");
-		System.out.println("1. Add Audio File");
-		System.out.println("2. Add Video File");
+		System.out.println("1. Add Audio Skippable");
+		System.out.println("2. Add Video Skippable");
 		System.out.println("3. Add Live Stream");
 		System.out.println("4. Back");
 		System.out.print("Choose: ");

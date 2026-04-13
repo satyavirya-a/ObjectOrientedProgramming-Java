@@ -1,15 +1,17 @@
 package models;
 
-public class AudioFile extends Media implements File {
+public class AudioFile extends Media implements Skippable {
 	
 	private int currPlay;
+	private int duration;
 
 	public AudioFile() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public AudioFile(String title, String description, int duration) {
-		super(title, description, duration);
+		super(title, description);
+		this.duration = duration;
 		currPlay = 0;
 		
 	}
@@ -22,28 +24,26 @@ public class AudioFile extends Media implements File {
 	
 	@Override
 	public void showInfo() {
-		// TODO Auto-generated method stub
 		System.out.println("Now Playing: " + getTitle());
 		System.out.println(getDescription());
 		showDuration();
 	}
 
 	public void showDuration() {
-		if (currPlay > getDuration()) {
+		if (currPlay > duration) {
 			System.out.println("Durasi sudah Maksimum, tetap di durasi maksimal");
-			currPlay = getDuration();
+			currPlay = duration;
 		}
 		else if (currPlay < 0) {
 			System.out.println("Durasi sudah Minimal, kembali ke 00:00");
 			currPlay = 0;
 		}
-		System.out.println("Current play at " + durationCount(currPlay) + "/"+ durationCount(getDuration()));
+		System.out.println("Current play at " + durationCount(currPlay) + "/"+ durationCount(duration));
 		
 	}
 
 	@Override
 	public void play() {
-		// TODO Auto-generated method stub
 		currPlay += 10;
 		
 		showInfo();
@@ -67,8 +67,7 @@ public class AudioFile extends Media implements File {
 
 	@Override
 	public void showShortInfo() {
-		// TODO Auto-generated method stub
-		System.out.println("Audio: " + getTitle() + " (" + durationCount(getDuration()) + ")");
+		System.out.println("Audio: " + getTitle() + " (" + durationCount(duration) + ")");
 	}
 	
 	
@@ -80,12 +79,22 @@ public class AudioFile extends Media implements File {
 	public void setCurrPlay(int currPlay) {
 		this.currPlay = currPlay;
 	}
-
+	
 	@Override
 	public void showShortHistory() {
-		// TODO Auto-generated method stub
 		System.out.println("Audio: " + getTitle() + " (played at " + durationCount(currPlay) + ")");
 	}
+
+	@Override
+	public void resetHistory() {
+		currPlay = 0;
+	}
+
+	@Override
+	public boolean isWatched() {
+		return currPlay > 0;
+	}
+	
 	
 	
 	

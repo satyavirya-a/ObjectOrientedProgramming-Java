@@ -38,6 +38,23 @@ public class LiveStream extends Media {
 	public void setIsPlayed(boolean isPlayed) {
 		this.isPlayed = isPlayed;
 	}
+
+	@Override
+	public void showShortHistory() {
+		showShortInfo();
+	}
+
+	@Override
+	public void resetHistory() {
+		isPlayed = false;
+	}
+	
+	@Override
+	public boolean isWatched() {
+		return isPlayed;
+	}
+	
+	
 	
 	
 

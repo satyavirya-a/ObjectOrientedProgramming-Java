@@ -1,16 +1,18 @@
 package models;
 
-public class VideoFile extends Media implements File{
+public class VideoFile extends Media implements Skippable{
 	
 	private int currPlay;
+	private int duration;
 
 	public VideoFile() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public VideoFile(String title, String description, int duration) {
-		super(title, description, duration);
+		super(title, description);
 		currPlay = 0;
+		this.duration = duration;
 	}
 	
 	public String durationCount(int duration) {
@@ -28,15 +30,15 @@ public class VideoFile extends Media implements File{
 	}
 
 	public void showDuration() {
-		if (currPlay > getDuration()) {
+		if (currPlay > duration) {
 			System.out.println("Durasi sudah Maksimum, tetap di durasi maksimal");
-			currPlay = getDuration();
+			currPlay = duration;
 		}
 		else if (currPlay < 0) {
 			System.out.println("Durasi sudah Minimal, kembali ke 00:00");
 			currPlay = 0;
 		}
-		System.out.println("Current play at " + durationCount(currPlay) + "/"+ durationCount(getDuration()));
+		System.out.println("Current play at " + durationCount(currPlay) + "/"+ durationCount(duration));
 		
 	}
 
@@ -62,7 +64,7 @@ public class VideoFile extends Media implements File{
 	@Override
 	public void showShortInfo() {
 		// TODO Auto-generated method stub
-		System.out.println("Video: " + getTitle() + " (" + durationCount(getDuration()) + ")");
+		System.out.println("Video: " + getTitle() + " (" + durationCount(duration) + ")");
 	}
 	
 	public int getCurrPlay() {
@@ -75,9 +77,17 @@ public class VideoFile extends Media implements File{
 	
 	@Override
 	public void showShortHistory() {
-		// TODO Auto-generated method stub
 		System.out.println("Video: " + getTitle() + " (played at " + durationCount(currPlay) + ")");
 	}
+
+	@Override
+	public void resetHistory() {
+		currPlay = 0;
+	}
 	
+	@Override
+	public boolean isWatched() {
+		return currPlay > 0;
+	}
 
 }
