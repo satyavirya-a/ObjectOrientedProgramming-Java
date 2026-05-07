@@ -32,8 +32,8 @@ class EcommerceSystem {
 	   c.showCart();
    }
    
-   public void checkOutFromSystem(Customer customer, Cart c, PaymentMethod payment, ShippingMethod shipping, NotificationMethod notif) {
-	   paymentSystem.checkout(customer, c, payment, shipping, notif);
+   public void checkOutFromSystem(Customer customer, Cart c, PaymentMethod payment, ShippingMethod shipping, NotificationMethod notif, Database db) {
+	   paymentSystem.checkout(customer, c, payment, shipping, notif, db);
 	   totalBarang += c.getProductCount();
 	   totalReveue += c.calculateTotalBelanja();
    }

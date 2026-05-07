@@ -7,7 +7,7 @@ public class PaymentSystem {
 
 	}
 	
-	public void checkout(Customer customer, Cart c, PaymentMethod payment, ShippingMethod shipping, NotificationMethod notif) {
+	public void checkout(Customer customer, Cart c, PaymentMethod payment, ShippingMethod shipping, NotificationMethod notif, Database db) {
 		   
 		   double totalBelanja = c.calculateTotalBelanja();
 		   
@@ -43,7 +43,8 @@ public class PaymentSystem {
 	       notif.sendNotif(customer);
 
 	       printInvoice(customer, c);
-	       saveOrderToMySQL();
+	       
+	       db.saveToDatabase();
 	   }
 	
     
@@ -56,14 +57,6 @@ public class PaymentSystem {
         System.out.println("TOTAL: $" + c.calculateTotalBelanja());
     }
     
-    public void saveOrderToMySQL() {
-        System.out.println("Saving order to MySQL database...");
-    }
-
-    public void saveOrderToMongoDB() {
-        System.out.println("Saving order to MongoDB database...");
-    }
-
    
     
 

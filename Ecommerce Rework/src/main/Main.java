@@ -40,15 +40,17 @@ public class Main {
         PaymentMethod creditcard1 = new CreditCard();
         ShippingMethod jne1 = new JNEShipping();
         NotificationMethod email1 = new EmailNotification();
+        Database mySQL1 = new MySQLDatabase();
         
         system.checkOutFromSystem(
                 customer,
                 cart1,
                 creditcard1,
                 jne1,
-                email1
+                email1,
+                mySQL1
         );
-
+        		
         // Reporting
         system.printSalesReport();
     }
