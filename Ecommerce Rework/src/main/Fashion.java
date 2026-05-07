@@ -9,4 +9,11 @@ public class Fashion extends Product {
 		this.size = size;
 	}
 
+	@Override
+	public void printInfo() {
+		
+		System.out.println(name + " | Fashion | $" + price + " | Size: " + size);
+		
+	}
+
 }

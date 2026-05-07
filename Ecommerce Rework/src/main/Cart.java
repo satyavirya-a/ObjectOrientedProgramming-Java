@@ -13,6 +13,7 @@ public class Cart {
 	
 	public void addToCart(Product p) {
         products.add(p);
+        System.out.println(p.name + " added to cart.");
     }
 
     public void removeFromCart(String productName) {

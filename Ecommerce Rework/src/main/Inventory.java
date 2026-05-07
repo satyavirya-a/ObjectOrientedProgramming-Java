@@ -17,7 +17,7 @@ public class Inventory {
 	}
 	
 //	public void addElectronicsProduct(String name, double price, int warrantyMonths) {
-//        Product p = new Electronic(name, "Electronics", price, "Warranty: " + warrantyMonths + " months");
+//        Product p = new Electronics(name, "Electronics", price, "Warranty: " + warrantyMonths + " months");
 //        inventory.add(p);
 //        System.out.println("Electronics product added: " + name);
 //    }
@@ -37,15 +37,7 @@ public class Inventory {
     public void showInventory() {
         System.out.println("===== INVENTORY =====");
         for (Product p : inventory) {
-        		if (p instanceof Electronic) {
-        			System.out.println(p.name + " | Electronic | $" + p.price + " | " + ((Electronic)p).warrantyMonths);
-        		}
-        		else if (p instanceof Food) {
-        			System.out.println(p.name + " | Food | $" + p.price + " | " + ((Food)p).expiryDate);
-        		}
-        		else if (p instanceof Fashion) {
-        			System.out.println(p.name + " | Fashion | $" + p.price + " | " + ((Fashion)p).size);
-        		}
+        		p.printInfo();
         }
     }
     

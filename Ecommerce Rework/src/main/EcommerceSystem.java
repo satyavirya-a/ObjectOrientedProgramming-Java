@@ -5,7 +5,7 @@ class EcommerceSystem {
 	private Inventory inventory = new Inventory();
    private PaymentSystem paymentSystem = new PaymentSystem();
    
-   private int totalReveue = 0;
+   private double totalReveue = 0;
    private int totalBarang = 0;
     
    public void addProductToSystem(Product p) {

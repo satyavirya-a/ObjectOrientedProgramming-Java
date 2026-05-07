@@ -11,7 +11,7 @@ public class Main {
 //        system.addFoodProduct("Bengbeng", 5, "2027-01-01");
 //        system.addFashionProduct("Jacket", 120, "L");
         
-        Product gaminglaptop = new Electronic("Gaming Laptop", 1500, 24);
+        Product gaminglaptop = new Electronics("Gaming Laptop", 1500, 24);
         Product bengbeng = new Food("Bengbeng", 5, "2027-01-01");
         Product jacket = new Fashion("Jacket", 120, "L");
 
@@ -19,7 +19,7 @@ public class Main {
         system.addProductToSystem(bengbeng);
         system.addProductToSystem(jacket);
         // Show inventory
-//        system.showInventoryFromSystem();
+        system.showInventoryFromSystem();
 
         // Customer
         Customer customer = new Customer(

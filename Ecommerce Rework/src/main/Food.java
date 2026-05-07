@@ -7,5 +7,12 @@ public class Food extends Product {
 		super(name, price);
 		this.expiryDate = expiryDate;
 	}
+	
+	@Override
+	public void printInfo() {
+		System.out.println(name + " | Food | $" + price + " | Expiry: " + expiryDate);
+	}
+	
+	
 
 }
