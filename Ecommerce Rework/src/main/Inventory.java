@@ -13,7 +13,7 @@ public class Inventory {
 	
 	public void addProduct(Product p) {
 		inventory.add(p);
-		System.out.println( p.getClass().getSimpleName() + "product added: " + p.name);
+		System.out.println( p.getClass().getSimpleName() + " product added: " + p.name);
 	}
 	
 //	public void addElectronicsProduct(String name, double price, int warrantyMonths) {

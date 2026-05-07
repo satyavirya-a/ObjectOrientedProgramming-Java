@@ -15,8 +15,11 @@ public class Main {
         Product bengbeng = new Food("Bengbeng", 5, "2027-01-01");
         Product jacket = new Fashion("Jacket", 120, "L");
 
+        system.addProductToSystem(gaminglaptop);
+        system.addProductToSystem(bengbeng);
+        system.addProductToSystem(jacket);
         // Show inventory
-        system.showInventoryFromSystem();
+//        system.showInventoryFromSystem();
 
         // Customer
         Customer customer = new Customer(

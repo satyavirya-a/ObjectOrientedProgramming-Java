@@ -19,7 +19,7 @@ class EcommerceSystem {
 		   c.addToCart(foundProduct);
 	   }
 	   else {
-		   System.out.println("Error, tidak ketemu");
+		   System.out.println("Error, tidak ketemu barang yang ingin dimasukan ke cart");
 	   }
 	   
    }
@@ -34,7 +34,8 @@ class EcommerceSystem {
    
    public void checkOutFromSystem(Customer customer, Cart c, PaymentMethod payment, ShippingMethod shipping, NotificationMethod notif) {
 	   paymentSystem.checkout(customer, c, payment, shipping, notif);
-	 
+	   totalBarang += c.getProductCount();
+	   totalReveue += c.calculateTotalBelanja();
    }
    
     
